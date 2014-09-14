@@ -126,7 +126,7 @@ class Hackathon_CatalogAttributes_Adminhtml_Catalog_Category_AttributeController
             /* @var $model Mage_Catalog_Model_Entity_Attribute */
             $model = Mage::getModel('catalog/resource_eav_attribute');
             /* @var $helper Mage_Catalog_Helper_Product */
-            $helper = Mage::helper('catalog/product');
+            $helper = Mage::helper('catalogattribute');
 
             $id = $this->getRequest()->getParam('attribute_id');
 
@@ -254,5 +254,26 @@ class Hackathon_CatalogAttributes_Adminhtml_Catalog_Category_AttributeController
             }
         }
         $this->_redirect('*/*/');
+    }
+    
+    public function validateAction()
+    {
+        $response = new Varien_Object();
+        $response->setError(false);
+
+        $attributeCode  = $this->getRequest()->getParam('attribute_code');
+        $attributeId    = $this->getRequest()->getParam('attribute_id');
+        $attribute = Mage::getModel('catalog/resource_eav_attribute')
+            ->loadByCode($this->_entityTypeId, $attributeCode);
+
+        if ($attribute->getId() && !$attributeId) {
+            Mage::getSingleton('adminhtml/session')->addError(
+                Mage::helper('catalog')->__('Attribute with the same code already exists'));
+            $this->_initLayoutMessages('adminhtml/session');
+            $response->setError(true);
+            $response->setMessage($this->getLayout()->getMessagesBlock()->getGroupedHtml());
+        }
+
+        $this->getResponse()->setBody($response->toJson());
     }
 }
