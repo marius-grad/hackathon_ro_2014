@@ -9,12 +9,10 @@
          stopOnFailure="false"
          syntaxCheck="true"
          bootstrap="./autoload.php">
-    <testsuite name="Magento Unit Test">
-        <directory>testsuite</directory>
-    </testsuite>
-    <filter>
-        <whitelist>
-            <directory>../../app/code/community</directory>
-        </whitelist>
-    </filter>
+    <testsuites>
+        <testsuite name="Hackathon_CatalogAttributes">
+            <directory>./Hackathon</directory>
+        </testsuite>
+    </testsuites>
+
 </phpunit>
