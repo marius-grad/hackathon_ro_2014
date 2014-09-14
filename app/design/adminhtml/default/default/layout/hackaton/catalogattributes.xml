@@ -10,7 +10,7 @@
             </block>
         </reference>
         <reference name="js">
-            <block type="adminhtml/template" name="attribute_edit_js" template="catalog/product/attribute/js.phtml"></block>
+            <block type="adminhtml/template" name="attribute_edit_js" template="hackathon/catalog/category/attribute/js.phtml"></block>
         </reference>
     </adminhtml_catalog_category_attribute_edit>
 </layout>

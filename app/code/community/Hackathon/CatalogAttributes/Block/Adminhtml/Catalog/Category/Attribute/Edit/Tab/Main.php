@@ -78,32 +78,9 @@ class Hackathon_CatalogAttributes_Block_Adminhtml_Catalog_Category_Attribute_Edi
             'values'=> $scopes
         ), 'attribute_code');
 
-        // frontend properties fieldset
-        $fieldset = $form->addFieldset('front_fieldset', array('legend'=>Mage::helper('catalog')->__('Frontend Properties')));
-
-        $fieldset->addField('is_wysiwyg_enabled', 'select', array(
-            'name' => 'is_wysiwyg_enabled',
-            'label' => Mage::helper('catalog')->__('Enable WYSIWYG'),
-            'title' => Mage::helper('catalog')->__('Enable WYSIWYG'),
-            'values' => $yesnoSource,
-        ));
-
-        $htmlAllowed = $fieldset->addField('is_html_allowed_on_front', 'select', array(
-            'name' => 'is_html_allowed_on_front',
-            'label' => Mage::helper('catalog')->__('Allow HTML Tags on Frontend'),
-            'title' => Mage::helper('catalog')->__('Allow HTML Tags on Frontend'),
-            'values' => $yesnoSource,
-        ));
         if (!$attributeObject->getId() || $attributeObject->getIsWysiwygEnabled()) {
             $attributeObject->setIsHtmlAllowedOnFront(1);
         }
-
-        $fieldset->addField('is_visible_on_front', 'select', array(
-            'name'      => 'is_visible_on_front',
-            'label'     => Mage::helper('catalog')->__('Visible on Product View Page on Front-end'),
-            'title'     => Mage::helper('catalog')->__('Visible on Product View Page on Front-end'),
-            'values'    => $yesnoSource,
-        ));
 
         // define field dependencies
         $this->setChild('form_after', $this->getLayout()->createBlock('adminhtml/widget_form_element_dependence')
