@@ -9,6 +9,7 @@
          stopOnFailure="false"
          syntaxCheck="true"
          bootstrap="./autoload.php">
+
     <testsuites>
         <testsuite name="Hackathon_CatalogAttributes">
             <directory>./Hackathon</directory>

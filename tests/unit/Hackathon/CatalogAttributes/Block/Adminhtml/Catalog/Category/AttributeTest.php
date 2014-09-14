@@ -1,5 +1,4 @@
 <?php
-//require_once 'PHPUnit/Framework.php';
 class Hackathon_CatalogAttributes_Block_Adminhtml_Catalog_Category_AttributeTest extends PHPUnit_Framework_TestCase
 {
     protected $_class;
@@ -10,9 +9,9 @@ class Hackathon_CatalogAttributes_Block_Adminhtml_Catalog_Category_AttributeTest
     }
 
 
-    public function testSomeClass()
+    public function testClass()
     {
-        $this->assertInstanceOf('Hackathon_CatalogAttributes_Block_Adminhtml_Catalog_Category_Attribute',$this->_class);
+        $this->assertInstanceOf('Hackathon_CatalogAttributes_Block_Adminhtml_Catalog_Category_Attribute', $this->_class);
     }
 
 }
