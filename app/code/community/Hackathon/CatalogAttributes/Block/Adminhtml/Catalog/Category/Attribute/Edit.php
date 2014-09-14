@@ -11,6 +11,7 @@ class Hackathon_CatalogAttributes_Block_Adminhtml_Catalog_Category_Attribute_Edi
     {
         $this->_objectId = 'attribute_id';
         $this->_controller = 'adminhtml_catalog_category_attribute';
+        $this->_blockGroup = 'catalogattribute';
 
         parent::__construct();
 
