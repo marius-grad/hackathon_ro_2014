@@ -41,4 +41,55 @@ class Hackathon_CatalogAttributes_Adminhtml_Catalog_Category_AttributeController
             ->renderLayout();
     }
     
+    public function newAction()
+    {
+        $this->_forward('edit');
+    }
+
+    public function editAction()
+    {
+        $id = $this->getRequest()->getParam('attribute_id');
+        $model = Mage::getModel('catalog/resource_eav_attribute')
+            ->setEntityTypeId($this->_entityTypeId);
+        if ($id) {
+            $model->load($id);
+
+            if (! $model->getId()) {
+                Mage::getSingleton('adminhtml/session')->addError(
+                    Mage::helper('catalogattribute')->__('This attribute no longer exists'));
+                $this->_redirect('*/*/');
+                return;
+            }
+
+            // entity type check
+            if ($model->getEntityTypeId() != $this->_entityTypeId) {
+                Mage::getSingleton('adminhtml/session')->addError(
+                    Mage::helper('catalogattribute')->__('This attribute cannot be edited.'));
+                $this->_redirect('*/*/');
+                return;
+            }
+        }
+
+        // set entered data if was error when we do save
+        $data = Mage::getSingleton('adminhtml/session')->getAttributeData(true);
+        if (! empty($data)) {
+            $model->addData($data);
+        }
+
+        Mage::register('entity_attribute', $model);
+
+        $this->_initAction();
+
+        $this->_title($id ? $model->getName() : $this->__('New Attribute'));
+
+        $item = $id ? Mage::helper('catalogattribute')->__('Edit Catalog Attribute')
+                    : Mage::helper('catalogattribute')->__('New Catalog Attribute');
+
+        $this->_addBreadcrumb($item, $item);
+
+        $this->getLayout()->getBlock('attribute_edit_js');
+
+        $this->renderLayout();
+
+    }
 }
