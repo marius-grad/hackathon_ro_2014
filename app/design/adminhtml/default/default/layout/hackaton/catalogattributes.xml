@@ -1,0 +1,9 @@
+<layout version="0.1.0">
+
+    <adminhtml_catalog_category_attribute_edit>
+        <reference name="content">
+            <block type="adminhtml/catalog_category_attribute" name="attribute"></block>
+        </reference>
+
+    </adminhtml_catalog_category_attribute_edit>
+</layout>
