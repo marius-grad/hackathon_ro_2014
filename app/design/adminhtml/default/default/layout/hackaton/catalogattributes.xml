@@ -1,9 +1,16 @@
 <layout version="0.1.0">
 
     <adminhtml_catalog_category_attribute_edit>
-        <reference name="content">
-            <block type="adminhtml/catalog_category_attribute" name="attribute"></block>
+        <reference name="left">
+            <block type="catalogattribute/adminhtml_catalog_category_attribute_edit_tabs" name="attribute_edit_tabs"></block>
         </reference>
-
+        <reference name="content">
+            <block type="catalogattribute/adminhtml_catalog_category_attribute_edit" name="attribute_edit_content">
+                <block type="catalogattribute/adminhtml_catalog_category_attribute_edit_form" name="form"></block>
+            </block>
+        </reference>
+        <reference name="js">
+            <block type="adminhtml/template" name="attribute_edit_js" template="hackathon/catalog/category/attribute/js.phtml"></block>
+        </reference>
     </adminhtml_catalog_category_attribute_edit>
 </layout>
