@@ -28,4 +28,22 @@
             </adminhtml>
         </routers>
     </admin>
+    <adminhtml>
+    <translate>
+        <modules>
+            <Hackathon_CatalogAttributes>
+                <files>
+                    <default>Hackaton_CatalogAttributes.csv</default>
+                </files>
+            </Hackathon_CatalogAttributes>
+        </modules>
+    </translate>
+    <layout>
+        <updates>
+            <catalogattributes>
+                <file>hackaton/catalogattributes.xml</file>
+            </catalogattributes>
+        </updates>
+    </layout>
+    </adminhtml>
 </config>
