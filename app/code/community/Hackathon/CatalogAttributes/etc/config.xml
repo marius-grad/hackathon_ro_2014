@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Hackathon_CatalogAttributes>
+            <version>1.0.0</version>
+        </Hackathon_CatalogAttributes>
+    </modules>
+    <global>
+        <helpers>
+            <catalogattribute>
+                <class>Hackathon_CatalogAttributes_Helper</class>
+            </catalogattribute>
+        </helpers>
+        <blocks>
+            <catalogattribute>
+                <class>Hackathon_CatalogAttributes_Block</class>
+            </catalogattribute>
+        </blocks>
+    </global>
+    <admin>
+         <routers>
+            <adminhtml>
+                <args>
+                    <modules>
+                        <Hackathon_CatalogAttributes after="Mage_Adminhtml">Hackathon_CatalogAttributes_Adminhtml</Hackathon_CatalogAttributes>
+                    </modules>
+                </args>
+            </adminhtml>
+        </routers>
+    </admin>
+</config>

@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<config>
+    <menu>
+        <catalog>
+            <children>
+                <categories_attributes translate="title" module="catalogattribute">
+                    <title>Manage Category Attributes</title>
+                    <action>adminhtml/catalog_category_attribute/</action>
+                    <sort_order>11</sort_order>
+                </categories_attributes>
+            </children>
+        </catalog>
+    </menu>
+    <acl>
+        <resources>
+            <admin>
+                <children>
+                    <catalog>
+                        <children>
+                            <categories_attributes translate="title" module="catalogattribute">
+                                <title>Manage Category Attributes</title>
+                            </categories_attributes>
+                        </children>
+                    </catalog>
+                </children>
+            </admin>
+        </resources>
+    </acl>
+</config>
